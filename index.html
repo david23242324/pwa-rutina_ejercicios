@@ -124,6 +124,15 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('data:text/javascript;base64,dmFyIENBQ0hFX05BTUUgPSAnZml0LXB3YS1jYWNoZSc7CmNvbnN0IEFzc2V0cyA9IFsKICAnLi8nLAogICcvaW5kZXguaHRtbCcsCiAgJy9zdHlsZS5jc3MnLAogICcvYXBwLmpzJwogXTsKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgZXZlbnQgPT4gewogIGV2ZW50LndhaXRVbnRpbChjYWNoZXMub3BlbihDQUNIRV9OQU1FKSkudGhlbiggY2FjaGUgPT4gY2FjaGUuYWRkQWxsKEFzc2V0cykgKSk7CiAgc2VsZi5za2lwV2FpdGluZygpOwp9KTsKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdhY3RpdmF0ZScsIGV2ZW50ID0+IHsKICBldmVudC53YWl0VW50aWwoY2FjaGVzLmtleXMoKS50aGVuKGtleXMgPT4gUHJvbWlzZS5hbGwoa2V5cy5maWx0ZXIoaCA9PiBoICE9IENBQ0hFX05BTUUpLm1hcChrID0+IGNhY2hlcy5kZWxldGUoaykpKSkpOwogIHNlbGYuY2xpZW50cy5jbGFpbSgpOwp9KTsKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGV2ZW50ID0+IHsKICBpZiAoZXZlbnQucmVxdWVzdC5tZXRob2QgIT09ICdHRVQnKSByZXR1cm47CiAgZXZlbnQucmVzcG9uZFdpdGgoY2FjaGVzLm1hdGNoKGV2ZW50LnJlcXVlc3QpKTsKfSk7');
     }
+ 
   </script>
+ <link rel="manifest" href="manifest.json" />
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js');
+    });
+  }
+</script>
 </body>
 </html>
