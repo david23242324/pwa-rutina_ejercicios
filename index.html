@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rutinas Fit</title>
   <meta name="theme-color" content="#10b981" />
-  <link rel="manifest" href="https://www.google.com/imgres?q=logos%20de%20apps%20de%20rutinas&imgurl=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F020%2F195%2F404%2Fnon_2x%2Ffitness-icon-for-your-website-design-logo-app-ui-free-vector.jpg&imgrefurl=https%3A%2F%2Fes.vecteezy.com%2Farte-vectorial%2F20195404-aptitud-icono-para-tu-sitio-web-diseno-logo-aplicacion-ui&docid=K_FtmK8ZRNaspM&tbnid=ToksotlxCGSyPM&vet=12ahUKEwj2ta_4qK6PAxVJRzABHXJFEv8QM3oECDgQAA..i&w=980&h=980&hcb=2&ved=2ahUKEwj2ta_4qK6PAxVJRzABHXJFEv8QM3oECDgQAA" />
+
+  <!-- Manifest -->
+  <link rel="manifest" href="./manifest.json" />
+
+  <!-- Icono para fallback -->
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6891/6891217.png" />
+
   <style>
     body {
       font-family: sans-serif;
@@ -120,19 +126,12 @@
 
     renderRoutines();
 
-    // Service Worker para modo offline
+    // Registrar Service Worker
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('data:text/javascript;base64,dmFyIENBQ0hFX05BTUUgPSAnZml0LXB3YS1jYWNoZSc7CmNvbnN0IEFzc2V0cyA9IFsKICAnLi8nLAogICcvaW5kZXguaHRtbCcsCiAgJy9zdHlsZS5jc3MnLAogICcvYXBwLmpzJwogXTsKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgZXZlbnQgPT4gewogIGV2ZW50LndhaXRVbnRpbChjYWNoZXMub3BlbihDQUNIRV9OQU1FKSkudGhlbiggY2FjaGUgPT4gY2FjaGUuYWRkQWxsKEFzc2V0cykgKSk7CiAgc2VsZi5za2lwV2FpdGluZygpOwp9KTsKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdhY3RpdmF0ZScsIGV2ZW50ID0+IHsKICBldmVudC53YWl0VW50aWwoY2FjaGVzLmtleXMoKS50aGVuKGtleXMgPT4gUHJvbWlzZS5hbGwoa2V5cy5maWx0ZXIoaCA9PiBoICE9IENBQ0hFX05BTUUpLm1hcChrID0+IGNhY2hlcy5kZWxldGUoaykpKSkpOwogIHNlbGYuY2xpZW50cy5jbGFpbSgpOwp9KTsKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGV2ZW50ID0+IHsKICBpZiAoZXZlbnQucmVxdWVzdC5tZXRob2QgIT09ICdHRVQnKSByZXR1cm47CiAgZXZlbnQucmVzcG9uZFdpdGgoY2FjaGVzLm1hdGNoKGV2ZW50LnJlcXVlc3QpKTsKfSk7');
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(() => console.log('✅ Service Worker registrado'))
+        .catch(err => console.error('❌ Error registrando Service Worker:', err));
     }
- 
   </script>
- <link rel="manifest" href="manifest.json" />
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js');
-    });
-  }
-</script>
 </body>
 </html>
